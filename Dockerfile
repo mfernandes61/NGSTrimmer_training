@@ -14,6 +14,12 @@ RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-prop
 RUN mkdir /scripts
 ADD scripts\*.sh /scripts/
 RUN chmod +x /scripts/*.sh
+# need to install fastqc, tophat, pip, sickle, cutadapt, condetri, prinseq, erne-filter, prinseq, trimmomatic
+# Install cutadapt
+RUN pip install --user --upgrade cutadapt
+# Install trimmomatic binary
+RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
+
 
 EXPOSE 22
 EXPOSE 4200
