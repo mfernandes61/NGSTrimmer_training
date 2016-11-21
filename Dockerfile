@@ -4,7 +4,7 @@
 # Mark Fernandes 15/04/16
 #
 
-FROM mfernandes61/bppc
+FROM foodresearch/bppc
 
 MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 
