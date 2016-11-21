@@ -4,7 +4,7 @@
 # Mark Fernandes 15/04/16
 #
 
-FROM bppc
+FROM mfernandes61/bppc
 
 MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 
