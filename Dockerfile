@@ -12,7 +12,7 @@ USER root
 RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-properties-common python-pip sickle \
   fastqc tophat perl gcc g++ pkg-config wget 
 RUN if [ ! -d "/scripts" ]; then mkdir /scripts ; fi
-ADD scripts\*.sh /scripts/
+ADD scripts\*.sh /scripts
 RUN chmod +x /scripts/*.sh
 # need to install fastqc, tophat, pip, sickle, cutadapt, condetri, prinseq, erne-filter, prinseq, trimmomatic
 # Install cutadapt
