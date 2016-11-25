@@ -10,7 +10,7 @@ MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 
 USER root
 RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-properties-common python-pip sickle \
-  fastqc tophat perl gcc g++ pkg-config wget bowtie gtextutils
+  fastqc tophat perl gcc g++ pkg-config wget bowtie 
 RUN if [ ! -d "/scripts" ]; then mkdir /scripts ; fi
 ADD scripts\* /scripts
 RUN chmod +x /scripts/*.sh
