@@ -20,5 +20,6 @@
  sudo make install
  cd ..
  
+ rm *.tar.bz
 # update shared library cache
 sudo ldconfig
