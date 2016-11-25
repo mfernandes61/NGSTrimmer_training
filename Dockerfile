@@ -19,7 +19,7 @@ RUN chmod +x /scripts/*.sh
 RUN pip install --user --upgrade cutadapt
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
-
+RUN /scripts/FastX_install.sh
 
 EXPOSE 22
 EXPOSE 4200
