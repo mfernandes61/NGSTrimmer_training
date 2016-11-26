@@ -6,7 +6,7 @@ set -e -x
 # version 1.6908
 
 # DEPENDENCIES
-yum install -y make gcc tar curl perl perl-Module-Build
+apt-get  install -y make gcc tar curl perl perl-Module-Build
 
 # go to bin
 cd /usr/bin
@@ -24,7 +24,7 @@ cd /opt/prinseq
 BASE_FOLDER=/opt/prinseq
 
 # prinseq native deps: cairo libs
-yum install -y cairo cairo-devel
+apt-get install -y cairo cairo-devel
 
 # random prereqs
 cpanm Test::Simple@0.98
