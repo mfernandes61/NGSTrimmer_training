@@ -6,7 +6,8 @@ set -e -x
 # version 1.6908
 
 # DEPENDENCIES
-apt-get  install -y make gcc tar curl perl perl-Module-Build
+apt-get  install -y make gcc tar curl perl 
+# perl-Module-Build
 
 # go to bin
 cd /usr/bin
