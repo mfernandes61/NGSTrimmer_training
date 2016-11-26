@@ -6,7 +6,6 @@
 # www.ifr.ac.uk
 
 FROM foodresearch/bppc
-
 MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 
 USER root
@@ -23,6 +22,8 @@ RUN mkdir /tools && cd /tools
 RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P erne
 # Install trimmomatic binary
 RUN mkdir trimmomatic &&  wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P trimmomatic
+# download condetri
+RUN mkdir condetri && wget http://github.com/linneas/condetri/archive/master.zip -P condetri
 # RUN unzip *.zip
 # RUN  /scripts/install_prinseq.sh
 
