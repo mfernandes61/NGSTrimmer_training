@@ -1,8 +1,9 @@
 #
-# Create a test Galaxy instance with Ipython Notebooks & Bioblend API
-# to facilitate utility program development
-# Mark Fernandes 15/04/16
+# Create a container environment with several NGS trimmers and, data and 
+# an mapper for students to explore the efficacy of trimming in getting good alignments
 #
+# Mark Fernandes November 2016
+# www.ifr.ac.uk
 
 FROM foodresearch/bppc
 
@@ -10,7 +11,7 @@ MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 
 USER root
 RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-properties-common python-pip sickle \
-  fastqc tophat perl gcc g++ pkg-config wget bowtie 
+  fastqc tophat perl gcc g++ pkg-config wget bowtie fastx-toolkit
 RUN if [ ! -d "/scripts" ]; then mkdir /scripts ; fi
 ADD scripts\* /scripts
 RUN chmod +x /scripts/*.sh
@@ -19,7 +20,7 @@ RUN chmod +x /scripts/*.sh
 RUN pip install --user --upgrade cutadapt
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip
-RUN  /scripts/FastX_install.sh 
+#RUN  /scripts/FastX_install.sh 
 RUN  /scripts/install_prinseq.sh
 
 EXPOSE 22
