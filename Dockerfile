@@ -18,6 +18,9 @@ RUN chmod +x /scripts/*.sh
 # need to install fastqc, tophat, pip, sickle, cutadapt, condetri, prinseq, erne-filter, prinseq, trimmomatic
 # Install cutadapt
 RUN pip install --user --upgrade cutadapt
+RUN mkdir /tools && cd /tools
+# download ERNE
+RUN wget https://github.com/vezzi/ERNE/archive/master.zip
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip && unzip *.zip
 #RUN  /scripts/FastX_install.sh 
