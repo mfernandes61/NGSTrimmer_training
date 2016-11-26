@@ -25,7 +25,7 @@ cd /opt/prinseq
 BASE_FOLDER=/opt/prinseq
 
 # prinseq native deps: cairo libs
-apt-get install -y cairo cairo-devel
+apt-get install -y libcairo2-dev
 
 # random prereqs
 cpanm Test::Simple@0.98
