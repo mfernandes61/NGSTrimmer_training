@@ -20,10 +20,10 @@ RUN chmod +x /scripts/*.sh
 RUN pip install --user --upgrade cutadapt
 RUN mkdir /tools && cd /tools
 # download ERNE
-RUN wget http://github.com/vezzi/ERNE/archive/master.zip
+RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P erne
 # Install trimmomatic binary
-RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip && unzip *.zip
-#RUN  /scripts/FastX_install.sh 
+RUN mkdir trimmomatic &&  wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P trimmomatic
+# RUN unzip *.zip
 # RUN  /scripts/install_prinseq.sh
 
 EXPOSE 22
