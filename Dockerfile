@@ -28,7 +28,7 @@ RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu
 RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools && mv /tools/master.zip /tools/erne.zip
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P /tools \
-	&& unzip /tools/Trimm*.zip -d /tools/* && rm /tools/Trimm*.zip
+	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip
 # download condetri
 RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /tools/master.zip /tools/condetri.zip
 # RUN unzip *.zip  && rm /tools/sra*.tar.gz
