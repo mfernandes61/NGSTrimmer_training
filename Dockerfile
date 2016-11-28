@@ -21,7 +21,7 @@ RUN pip install --user --upgrade cutadapt
 RUN mkdir /tools && cd /tools
 #download SRA-toolkit
 RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
-	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools
+	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools sratool*.tar.gz
 # RUN ln -s /tools/sra/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
 
 # download ERNE
@@ -30,7 +30,8 @@ RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P /tools \
 	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip
 # download condetri
-RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /tools/master.zip /tools/condetri.zip
+RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /tools/master.zip /tools/condetri.zip \
+	&& unzip -P /tools && rm /tools/cond*.zip
 # RUN unzip *.zip  && rm /tools/sra*.tar.gz
 # Install Prinseq or Prinseq-lite
 # RUN  /scripts/install_prinseq.sh
