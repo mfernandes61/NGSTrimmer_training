@@ -31,7 +31,7 @@ RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmoma
 	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip
 # download condetri
 RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /tools/master.zip /tools/condetri.zip \
-	&& unzip -P /tools && rm /tools/cond*.zip
+	&& unzip /tools/condetri.zip -P /tools && rm /tools/cond*.zip
 # RUN unzip *.zip  && rm /tools/sra*.tar.gz
 # Install Prinseq or Prinseq-lite
 # RUN  /scripts/install_prinseq.sh
