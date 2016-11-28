@@ -21,7 +21,7 @@ RUN pip install --user --upgrade cutadapt
 RUN mkdir /tools && cd /tools
 #download SRA-toolkit
 RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
-	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools sratool*.tar.gz
+	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools/sratool*.tar.gz
 # RUN ln -s /tools/sra/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
 
 # download ERNE
