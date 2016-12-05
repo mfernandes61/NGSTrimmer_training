@@ -27,7 +27,7 @@ RUN ln -s /tools/sra/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
 # download ERNE
 #RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools && mv /tools/master.zip /tools/erne.zip \
 #	&& unzip /tools/erne.zip -d /tools && rm /tools/erne.zip
-RUN mkdir erne && wget http://sourceforge.net/projects/erne/files/latest/download?source=files -P /tools
+RUN mkdir erne && wget http://sourceforge.net/projects/erne/files/2.1.1/erne-2.1.1-linux.tar.gz -P /tools
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P /tools \
 	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip
