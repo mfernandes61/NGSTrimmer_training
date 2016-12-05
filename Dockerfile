@@ -38,7 +38,7 @@ RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /
 # RUN unzip *.zip  && rm /tools/sra*.tar.gz
 # Install Prinseq or Prinseq-lite
 # RUN  /scripts/install_prinseq.sh
-RUN /scripts/prinseq_lite.sh
+# RUN /scripts/prinseq_lite.sh
 
 EXPOSE 22
 EXPOSE 4200
