@@ -19,10 +19,15 @@ RUN chmod +x /scripts/*.sh
 # Install cutadapt
 RUN pip install --user --upgrade cutadapt
 RUN mkdir /tools && cd /tools
-#download SRA-toolkit
-RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
+#download SRA-toolkit 2.8+ to support requires https connection
+# sratoolkit.current-ubuntu64.tar.gz
+RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz -P /tools \
+	&& tar zxvf /tools/sratoolkit.current-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz \
+	&& ln -s /tools/sratoolkit.current-ubuntu64/bin/* /usr/local/bin/
+#RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
 	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz
-RUN ln -s /tools/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
+# RUN ln -s /tools/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
+
 
 # download ERNE
 #RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools && mv /tools/master.zip /tools/erne.zip \
