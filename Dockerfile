@@ -25,7 +25,7 @@ RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ub
 	&& tar zxvf /tools/sratoolkit.current-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz \
 	&& ln -s /tools/sratoolkit.current-ubuntu64/bin/* /usr/local/bin/
 #RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
-	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz
+#	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz
 # RUN ln -s /tools/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
 
 
