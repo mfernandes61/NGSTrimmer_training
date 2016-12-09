@@ -24,10 +24,6 @@ RUN mkdir /tools && cd /tools
 RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz -P /tools \
 	&& tar zxvf /tools/sratoolkit.current-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz \
 	&& ln -s /tools/sratoolkit.current-ubuntu64/bin/* /usr/local/bin/
-#RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.6.2/sratoolkit.2.6.2-ubuntu64.tar.gz -P /tools \
-#	&& tar zxvf /tools/sratoolkit.2.6.2-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz
-# RUN ln -s /tools/sratoolkit.2.6.2-ubuntu64/bin/* /usr/local/bin/
-
 
 # download ERNE
 #RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools && mv /tools/master.zip /tools/erne.zip \
@@ -42,11 +38,9 @@ RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /
 	&& unzip /tools/condetri.zip -d /tools && rm /tools/cond*.zip
 # RUN unzip *.zip  && rm /tools/sra*.tar.gz
 # Install Prinseq or Prinseq-lite
-# RUN  /scripts/install_prinseq.sh
 RUN /scripts/prinseq_lite.sh
 
-EXPOSE 22
-EXPOSE 4200
+EXPOSE 22 4200
 VOLUME /coursehome
 	
 #USER ngsintro
