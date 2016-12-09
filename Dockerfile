@@ -11,7 +11,7 @@ MAINTAINER Mark Fernandes mark.fernandes@ifr.ac.uk
 USER root
 RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-properties-common python-pip unzip default-jre\
 	 libboost-all-dev libghc6-zlib-dev perl gcc g++ pkg-config \
-	 sickle fastqc tophat wget bowtie fastx-toolkit
+	 sickle fastqc tophat wget bowtie fastx-toolkit && apt-get clean
 RUN if [ ! -d "/scripts" ]; then mkdir /scripts ; fi
 ADD scripts\* /scripts
 RUN chmod +x /scripts/*.sh
