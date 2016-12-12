@@ -1,0 +1,30 @@
+Welcome to this IFR Docker container
+
+It has 6 NGS trimming tools installed for you to experiment with on
+some suppled data:
+PRINSEQ
+https://github.com/era7bio/prinseq.install
+TRIMMOMATIC
+http://www.usadellab.org/cms/?page=trimmomatic
+CUTADAPT
+http://cutadapt.readthedocs.io/en/stable/installation.html
+FASTX Toolkit
+http://hannonlab.cshl.edu/fastx_toolkit/install_ubuntu.txt
+SICKLE
+https://www.howtoinstall.co/en/ubuntu/xenial/sickle
+CONDETRI
+https://github.com/linneas/condetri
+ERNE-filter
+https://sourceforge.net/projects/erne/?source=navbar
+
+fastqc is also supplied for you to check the data before and after trimming.
+It is planned to have an advanced exercise involving comparing mapping success 
+between raw and trimmed data to a refernce genome.
+
+*** NB ****
+In Kitematic you will need to map the volume /coursehome to a directory 
+on your hard disk. Next stop then start the container (buttons towards 
+top RH corner) log in again and type '/scripts/copy_course.sh' to
+copy the tools, data and documents to the mapped directory on your
+local hard disk.
+***********
