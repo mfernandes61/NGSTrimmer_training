@@ -21,6 +21,11 @@ fastqc is also supplied for you to check the data before and after trimming.
 It is planned to have an advanced exercise involving comparing mapping success 
 between raw and trimmed data to a refernce genome.
 
+This training exercise was inspired by this paper (well worth reading!):
+Paper: An Extensive Evaluation of Read Trimming Effects on Illumina NGS Data Analysis -
+Cristian Del Fabbro , Simone Scalabrin , Michele Morgante, Federico M. Giorgi 
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0085024
+
 *** NB ****
 In Kitematic you will need to map the volume /coursehome to a directory 
 on your hard disk. Next stop then start the container (buttons towards 
