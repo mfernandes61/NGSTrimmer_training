@@ -1,0 +1,3 @@
+#! /bin/bash
+# trimmomatic script
+java -jar /tools/Trimmomatic*/trimmomatic.jar $#
