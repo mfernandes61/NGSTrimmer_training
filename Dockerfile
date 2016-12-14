@@ -14,37 +14,31 @@ RUN apt-get -qq update && apt-get upgrade -y && apt-get install -y software-prop
 	 sickle fastqc tophat wget bowtie fastx-toolkit && apt-get clean
 RUN if [ ! -d "/scripts" ]; then mkdir /scripts ; fi
 ADD scripts\* /scripts
-RUN chmod +x /scripts/*.sh
+RUN chmod +x /scripts/*.sh && install /scripts/trimmomatic /usr/local/bin
 ADD Welcome.txt /etc/motd
 # need to install fastqc, tophat, pip, sickle, cutadapt, condetri, prinseq, erne-filter, prinseq, trimmomatic
 # Install cutadapt
-RUN pip install --user --upgrade cutadapt
+RUN pip install cutadapt
 RUN mkdir /tools && cd /tools
-#download SRA-toolkit 2.8+ to support requires https connection
-# sratoolkit.current-ubuntu64.tar.gz
+#download SRA-toolkit 2.8+ to support requires https connection i.e.sratoolkit.current-ubuntu64.tar.gz
 RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz -P /tools \
 	&& tar zxvf /tools/sratoolkit.current-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz \
 	&& ln -s /tools/sratoolkit.current-ubuntu64/bin/* /usr/local/bin/
-
 # download ERNE
-#RUN mkdir erne && wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools && mv /tools/master.zip /tools/erne.zip \
-#	&& unzip /tools/erne.zip -d /tools && rm /tools/erne.zip
+# Original link wget http://github.com/vezzi/ERNE/archive/master.zip -P /tools 
 RUN mkdir erne && wget http://sourceforge.net/projects/erne/files/2.1.1/erne-2.1.1-linux.tar.gz -P /tools \
 	&& tar zxvf /tools/erne*.tar.gz -C /tools && rm /tools/*.tar.gz && ln -s /tools/erne*/bin/* /usr/local/bin
 # Install trimmomatic binary
 RUN wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip -P /tools \
-	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip
+	&& unzip /tools/Trimm*.zip -d /tools && rm /tools/Trimm*.zip && cd /tools/Trim* && mv trimmomat*.jar trimmomatic.jar
 # download condetri
 RUN wget http://github.com/linneas/condetri/archive/master.zip -P /tools && mv /tools/master.zip /tools/condetri.zip \
-	&& unzip /tools/condetri.zip -d /tools && rm /tools/cond*.zip
-# RUN unzip *.zip  && rm /tools/sra*.tar.gz
+	&& unzip /tools/condetri.zip -d /tools && rm /tools/cond*.zip && install /tools/condetri-master/*.pl /usr/local/bin
 # Install Prinseq or Prinseq-lite
 RUN /scripts/prinseq_lite.sh
 
 EXPOSE 22 4200
 VOLUME /coursehome
-	
-#USER ngsintro
 
 ENTRYPOINT ["/scripts/launchsiab.sh"]
 CMD ["/bin/bash"]
