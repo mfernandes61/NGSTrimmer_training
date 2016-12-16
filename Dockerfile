@@ -19,7 +19,9 @@ ADD Welcome.txt /etc/motd
 # need to install fastqc, tophat, pip, sickle, cutadapt, condetri, prinseq, erne-filter, prinseq, trimmomatic
 # Install cutadapt
 RUN pip install cutadapt
-RUN mkdir /tools && cd /tools
+# create our tools directory and the fastqc folder & files that are not installed by apt-get install fastqc :-(
+RUN mkdir /tools && cd /tools && mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration
+ADD fastqc/* /etc/fastqc/Configuration/
 #download SRA-toolkit 2.8+ to support requires https connection i.e.sratoolkit.current-ubuntu64.tar.gz
 RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz -P /tools \
 	&& tar zxvf /tools/sratoolkit.current-ubuntu64.tar.gz -C /tools && rm /tools/*.tar.gz \
